@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>let作用域</title>
+        <script>
+            window.onload = ()=>{
+                var bt = document.getElementsByClassName('btn');
+
+                /*外面嵌套了一层函数
+                for (var i = 0; i < bt.length; i++) {
+                    ((i)=>{
+                        bt[i].onclick = ()=>{
+                            alert(i+1);
+                        };
+                    })(i);
+                }
+                */
+
+                /*等同于下面这个：*/
+                for (let i = 0; i < bt.length; i++) {
+                    bt[i].onclick = ()=>{
+                        alert(i+1);
+                    };
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            <input class="btn" type="button" name="" value="btn1">
+            <input class="btn" type="button" name="" value="btn2">
+            <input class="btn" type="button" name="" value="btn3">
+        </div>
+    </body>
+</html>
